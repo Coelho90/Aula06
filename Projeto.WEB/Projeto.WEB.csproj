@@ -148,6 +148,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\PlanoCadastroViewModel.cs" />
+    <Compile Include="Models\PlanoConsultaViewModel.cs" />
+    <Compile Include="Models\PlanoEdicaoViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +171,7 @@
     <Content Include="Views\Plano\Consulta.cshtml" />
     <Content Include="Views\Cliente\Cadastro.cshtml" />
     <Content Include="Views\Cliente\Consulta.cshtml" />
+    <Content Include="Views\Plano\Edicao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -176,7 +179,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Projeto.DAL\Projeto.DAL.csproj">
+      <Project>{1c89eec6-ebda-4e7d-8b21-c28d18016cd1}</Project>
+      <Name>Projeto.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Projeto.Entidades\Projeto.Entidades.csproj">
+      <Project>{9A0F39C2-0B2C-4862-8DB8-A6B1B739B54C}</Project>
+      <Name>Projeto.Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
@@ -195,7 +207,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60930</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
