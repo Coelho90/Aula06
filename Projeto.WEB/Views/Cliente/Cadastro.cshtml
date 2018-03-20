@@ -12,6 +12,75 @@
 
     <h2>Cadastro de Clientes</h2>
     <a href="/Home/Index">Página inicial</a>
-    <hr/>
+    <hr />
+
+    @model Projeto.WEB.Models.ClienteCadastroViewModel
+
+    <div class="row">
+        <div class="col-md-4">
+
+            @using (Html.BeginForm())
+            {
+                <label>Nome do Cliente:</label>
+                @Html.TextBoxFor(model => model.Nome,
+                             new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Digite o nome do cliente"
+                             })
+
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Nome)
+                </span>
+                <br />
+
+                <label>Email:</label>
+                @Html.TextBoxFor(model => model.Email,
+                             new
+                             {
+                                 @class = "form-control",
+                                 @placeholder = "Digite o email do cliente"
+                             })
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Email)
+                </span>
+                <br />
+
+                <label>Sexo:</label>
+                @Html.EnumDropDownListFor(model => model.Sexo,
+                             new { @class = "form-control" })
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.Sexo)
+                </span>
+                <br />
+
+                <label>Estado Civil:</label>
+                @Html.EnumDropDownListFor(model => model.EstadoCivil,
+                             new { @class = "form-control" })
+                <span class="text-danger">
+                    @Html.ValidationMessageFor(model => model.EstadoCivil)
+                </span>
+                <br />
+
+                <label>Selecione o Plano:</label>
+                @Html.DropDownListFor(model => model.IdPlano, Model.ListagemDePlanos, "- Escolha uma Opção -", 
+                                                                                new { @class = "form-control" })
+                <br />  
+
+
+
+
+                <input type="submit" value="Cadastrar Cliente"
+                       class="btn btn-success" />
+                <br />
+                <br />
+
+                <strong>
+                    @ViewBag.Mensagem
+                </strong>
+            }
+        </div>
+    </div>
+    
 </body>
 </html>

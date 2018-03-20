@@ -11,6 +11,59 @@
 
     <h2>Consulta de Clientes</h2>
     <a href="/Home/Index">Página inicial</a>
-    <hr/>
+    <hr />
+
+    @model List<Projeto.WEB.Models.ClienteConsultaViewModel>
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome do Cliente</th>
+                <th>Email</th>
+                <th>Sexo</th>
+                <th>Estado Civil</th>
+                <th>Data de Cadastro</th>
+                <th>Nome do Plano</th>
+                <th>Operações</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model)
+            {
+                <tr>
+                    <td>@c.IdCliente</td>
+                    <td>@c.Nome</td>
+                    <td>@c.Email</td>
+                    <td>@c.Sexo.ToString()</td>
+                    <td>@c.EstadoCivil.ToString()</td>
+                    <td>@c.DataCadastro.ToString("dd/MM/yyyy")</td>
+                    <td>@c.NomePlano</td>
+                    <td>
+
+                        <a href="/Cliente/Edicao?idCliente=@c.IdCliente"
+                           class="btn btn-primary btn-sm">
+                            Atualizar
+                        </a>
+
+
+                        <a href="#" class="btn btn-danger btn-sm">
+                            Excluir
+                        </a>
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="8">
+                    Quantidade de clientes: @Model.Count
+                </td>
+            </tr>
+        </tfoot>
+    </table>
 </body>
 </html>
